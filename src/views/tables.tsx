@@ -16,8 +16,8 @@ import {
   FormControl,
   FormGroup,
 } from "@mui/material";
-import { AddPlus, Close } from "../icon";
-import { useState, useEffect } from "react";
+import { AddPlus, Close, Delete, DownLoad } from "../icon";
+import { useState } from "react";
 
 const AddButton = styled(Button)({
   fontSize: "16px",
@@ -62,19 +62,15 @@ export const TableView = () => {
   const handleClose = () => setOpen(false);
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/src/response.json");
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const handleFetch = async () => {
+    try {
+      const response = await fetch("/src/response.json");
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   return (
     <>
       <Modal
@@ -171,6 +167,7 @@ export const TableView = () => {
                 color: "#777",
                 backgroundColor: "#fff",
               }}
+              onClick={handleClose}
             >
               Отмена
             </Button>
@@ -182,6 +179,7 @@ export const TableView = () => {
                 backgroundColor: "#42B277",
               }}
               variant="contained"
+              onClick={handleFetch}
             >
               Импортировать
             </Button>
@@ -233,6 +231,7 @@ export const TableView = () => {
                 <TableCell align="center">Действия</TableCell>
               </TableRow>
             </TableHead>
+
             <TableBody>
               {data?.map(
                 (row: {
@@ -280,13 +279,29 @@ export const TableView = () => {
                     <TableCell align="left">
                       {row?.created_by.username}
                     </TableCell>
-                    <TableCell align="center"></TableCell>
+                    <TableCell align="center">
+                        <Box sx={{ display:"flex", alignItems:"center", gap:"8px", justifyContent:"center" }}>
+                            <DownLoad />
+                            <Delete />
+                        </Box>
+                    </TableCell>
                   </TableRow>
                 )
               )}
             </TableBody>
           </Table>
         </TableContainer>
+        {!data.length && (
+          <div
+            style={{
+              textAlign: "center",
+              color: "#2B2D33",
+              marginTop:"5px"
+            }}
+          >
+            No data
+          </div>
+        )}
       </Box>
     </>
   );

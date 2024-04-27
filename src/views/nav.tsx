@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Avatar, Box, Typography } from "@mui/material";
 
 export const Nav = () => {
   return (
@@ -23,6 +23,15 @@ export const Nav = () => {
           src="/assets/logo.png"
           alt="logo"
           style={{ display: "block", width: "100%", height: "100%" }}
+        />
+      </Box>
+      <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <Typography sx={{ fontSize: "16px", color: "#2B2D33" }}>
+          Фамилия Имя
+        </Typography>
+        <Avatar
+          src="/assets/ic_person_48px.png"
+          sx={{ width: "40px", height: "40px", backgroundColor: "#D9D9D9" }}
         />
       </Box>
     </Box>
