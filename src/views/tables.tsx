@@ -15,8 +15,9 @@ import {
   Checkbox,
   FormControl,
   FormGroup,
+  InputAdornment,
 } from "@mui/material";
-import { AddPlus, Close, Delete, DownLoad } from "../icon";
+import { AddPlus, Close, Delete, DownLoad, Search } from "../icon";
 import { useState } from "react";
 
 const AddButton = styled(Button)({
@@ -212,6 +213,46 @@ export const TableView = () => {
             Импорт
           </AddButton>
         </Box>
+        <Box
+          sx={{
+            marginBottom: "18px",
+            gap: "8px",
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <TextField
+            sx={{ height: "48px", width: "315px" }}
+            inputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Search />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <TextField
+            id="outlined-select-currency"
+            select
+            defaultValue="Статус"
+            sx={{
+              width: "237px",
+              border: "none",
+              outlien: "none",
+              backgroundColor: "#F2F2F2",
+              marginTop: "9px",
+            }}
+          >
+            <option>Статус</option>
+          </TextField>
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Обработан"
+              sx={{ fontSize: "12px", marginTop: "6px", marginLeft: "16px" }}
+            />
+          </FormGroup>
+        </Box>
         <TableContainer
           component={Box}
           sx={{
@@ -280,10 +321,17 @@ export const TableView = () => {
                       {row?.created_by.username}
                     </TableCell>
                     <TableCell align="center">
-                        <Box sx={{ display:"flex", alignItems:"center", gap:"8px", justifyContent:"center" }}>
-                            <DownLoad />
-                            <Delete />
-                        </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <DownLoad />
+                        <Delete />
+                      </Box>
                     </TableCell>
                   </TableRow>
                 )
@@ -296,7 +344,7 @@ export const TableView = () => {
             style={{
               textAlign: "center",
               color: "#2B2D33",
-              marginTop:"5px"
+              marginTop: "5px",
             }}
           >
             No data
