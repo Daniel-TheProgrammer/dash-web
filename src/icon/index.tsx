@@ -110,8 +110,8 @@ export const CaretUp = () => {
       fill="currentColor"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M6.53027 3.21961L10.2803 6.96961L9.21961 8.03027L5.99994 4.8106L2.78027 8.03027L1.71961 6.96961L5.46961 3.21961C5.76251 2.92672 6.23738 2.92672 6.53027 3.21961Z"
         fill="currentColor"
       />
@@ -129,8 +129,8 @@ export const CaretDown = () => {
       fill="currentColor"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M5.46973 8.78039L1.71973 5.03039L2.78039 3.96973L6.00006 7.1894L9.21973 3.96973L10.2804 5.03039L6.53039 8.78039C6.23749 9.07328 5.76262 9.07328 5.46973 8.78039Z"
         fill="currentColor"
       />

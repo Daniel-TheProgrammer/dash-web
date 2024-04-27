@@ -17,7 +17,7 @@ import {
   FormGroup,
 } from "@mui/material";
 import { AddPlus, Close } from "../icon";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const AddButton = styled(Button)({
   fontSize: "16px",
@@ -43,7 +43,7 @@ const TextInput = styled(TextField)({
   border: "none",
 });
 
-function createData(
+/*function createData(
   ID: number,
   col2: string,
   col3: string,
@@ -54,33 +54,27 @@ function createData(
 ) {
   return { ID, col2, col3, col4, col5, col6, col7 };
 }
-
-const rows = [
-  createData(
-    1,
-    "Реестр 1",
-    "Успешно обработан",
-    "17.04.2024",
-    2,
-    "admin",
-    <></>
-  ),
-];
-
-/*
-    <TableCell sx={{ fontWeight: 600 }}>ID</TableCell>
-              <TableCell align="center">Название файла</TableCell>
-              <TableCell align="center">Стату</TableCell>
-              <TableCell align="center">Дата загрузки</TableCell>
-              <TableCell align="center">Кол-во кредитных договоров</TableCell>
-              <TableCell align="center">Загружено пользователем</TableCell>{" "}
-              <TableCell align="center">Действия</TableCell>
 */
 
 export const TableView = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/src/response.json");
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <>
       <Modal
@@ -116,7 +110,7 @@ export const TableView = () => {
               position: "absolute",
               top: "28px",
               right: "28px",
-              cursor:"pointer"
+              cursor: "pointer",
             }}
           >
             <Close />
@@ -240,33 +234,56 @@ export const TableView = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.ID}>
-                  <TableCell component="th" scope="row">
-                    {row.ID}
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{
-                      color: "#4785EE",
-                    }}
-                  >
-                    {row.col2}
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    sx={{
-                      color: "#42B277",
-                    }}
-                  >
-                    {row.col3}
-                  </TableCell>
-                  <TableCell align="left">{row.col4}</TableCell>
-                  <TableCell align="left">{row.col5}</TableCell>
-                  <TableCell align="left">{row.col6}</TableCell>
-                  <TableCell align="center">{row.col7}</TableCell>
-                </TableRow>
-              ))}
+              {data?.map(
+                (row: {
+                  id: number;
+                  cession?: null;
+                  file: {
+                    name: string;
+                    url: string;
+                  };
+                  credits_count: number;
+                  status: {
+                    code: string;
+                    name: string;
+                    color: string;
+                  };
+                  created_by: {
+                    id: number;
+                    username: string;
+                    full_name: string;
+                  };
+                  created_at: string;
+                }) => (
+                  <TableRow key={row?.id}>
+                    <TableCell component="th" scope="row">
+                      {row?.id}
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{
+                        color: "#4785EE",
+                      }}
+                    >
+                      {row?.status.code}
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{
+                        color: "#42B277",
+                      }}
+                    >
+                      {row?.status.name}
+                    </TableCell>
+                    <TableCell align="left">{row?.file.url}</TableCell>
+                    <TableCell align="left">{row?.credits_count}</TableCell>
+                    <TableCell align="left">
+                      {row?.created_by.username}
+                    </TableCell>
+                    <TableCell align="center"></TableCell>
+                  </TableRow>
+                )
+              )}
             </TableBody>
           </Table>
         </TableContainer>

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 76,
+    "cession": null,
+    "file": {
+      "name": "АДРЕСА_проверка_C3MF1tx.xlsx",
+      "url": "https://CRM/media/registires/qweqadsweqwe.xlsx"
+    },
+    "credits_count": 86,
+    "status": {
+      "code": "processed",
+      "name": "Успешно обработан",
+      "color": "#4169E1"
+    },
+    "created_by": {
+      "id": 1,
+      "username": "admin",
+      "full_name": "admin admin"
+    },
+    "created_at": "2024-04-10T16:18:25.901767+03:00"
+  },
+  {
+    "id": 77,
+    "cession": null,
+    "file": {
+      "name": "1_РЕЕСТР_ИМПОРТА_УКОРОЧЕННЫЙ.xlsx",
+      "url": "https://CRM/media/registires/qweqdasdweqwe.xlsx"
+    },
+    "credits_count": 3,
+    "status": {
+      "code": "processed",
+      "name": "Успешно обработан",
+      "color": "#4169E1"
+    },
+    "created_by": {
+      "id": 1,
+      "username": "admin",
+      "full_name": "admin admin"
+    },
+    "created_at": "2024-04-11T21:57:59.711763+03:00"
+  },
+  {
+    "id": 78,
+    "cession": null,
+    "file": {
+      "name": "2_РЕЕСТР_ИМПОРТА_УКОРОЧЕННЫЙ.xlsx",
+      "url": "https://CRM/media/registires/qweqsadweqwe.xlsx"
+    },
+    "credits_count": 3,
+    "status": {
+      "code": "processed",
+      "name": "Успешно обработан",
+      "color": "#4169E1"
+    },
+    "created_by": {
+      "id": 1,
+      "username": "admin",
+      "full_name": "admin admin"
+    },
+    "created_at": "2024-04-11T21:58:18.058399+03:00"
+  },
+  {
+    "id": 79,
+    "cession": null,
+    "file": {
+      "name": "3_РЕЕСТР_ИМПОРТА_УКОРОЧЕННЫЙ.xlsx",
+      "url": "https://CRM/media/registires/qweqweqwrwerwfge.xlsx"
+    },
+    "credits_count": 4,
+    "status": {
+      "code": "processed",
+      "name": "Успешно обработан",
+      "color": "#4169E1"
+    },
+    "created_by": {
+      "id": 1,
+      "username": "admin",
+      "full_name": "admin admin"
+    },
+    "created_at": "2024-04-11T21:58:26.451110+03:00"
+  }
+]
