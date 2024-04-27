@@ -63,9 +63,14 @@ export const TableView = () => {
   const handleClose = () => setOpen(false);
   const [data, setData] = useState([]);
 
+
   const handleFetch = async () => {
     try {
-      const response = await fetch("/src/response.json");
+      let apiUrl = import.meta.env.VITE_APP_API_ENDPOINT; 
+      if (!apiUrl) {
+        apiUrl = "/src/response.json";
+      }
+      const response = await fetch(apiUrl);
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
