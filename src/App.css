@@ -3,5 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.css-1ndpvdd-MuiTableCell-root,
+.css-1ygcj2i-MuiTableCell-root{
+  font-weight: 600 !important;
+}
 
 

@@ -137,3 +137,53 @@ export const CaretDown = () => {
     </svg>
   );
 };
+
+export const AddPlus = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_702_2489)">
+        <path
+          d="M15.8337 10.8332H10.8337V15.8332H9.16699V10.8332H4.16699V9.1665H9.16699V4.1665H10.8337V9.1665H15.8337V10.8332Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_702_2489">
+          <rect width="20" height="20" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+
+export const Close = () => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+      >
+        <path
+          d="M2.78633 2.51419L17.4944 17.4858"
+          stroke="black"
+          stroke-width="3"
+          stroke-linecap="square"
+        />
+        <path
+          d="M17.0728 2.51444L2.64539 17.4861"
+          stroke="black"
+          stroke-width="3"
+          stroke-linecap="square"
+        />
+      </svg>
+    );
+}

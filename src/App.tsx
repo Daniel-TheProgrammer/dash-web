@@ -1,6 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
+import { TableView } from "./views/tables";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
       },
       {
         path: "Работа/Импорт",
-        element: <h2>hello</h2>,
+        element: <TableView />,
       },
     ],
   },
