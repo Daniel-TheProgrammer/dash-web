@@ -58,7 +58,7 @@ export const Aside = () => {
                     marginLeft: "8px",
                   }}
                 >
-                  Settings
+                  Настройки
                 </span>
               </Box>
             </Box>
@@ -77,12 +77,12 @@ const MenuItems = [
 
   {
     icon: <Profile />,
-    name: "Profile",
+    name: "Персонал",
     children: [],
   },
   {
     icon: <Compo3 />,
-    name: "Compo3",
+    name: "Кредиты",
     children: [],
   },
   {

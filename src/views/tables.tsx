@@ -44,21 +44,8 @@ const TextInput = styled(TextField)({
   border: "none",
 });
 
-/*function createData(
-  ID: number,
-  col2: string,
-  col3: string,
-  col4: string,
-  col5: number,
-  col6: string,
-  col7?: React.ReactNode
-) {
-  return { ID, col2, col3, col4, col5, col6, col7 };
-}
-*/
-
 export const TableView = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [data, setData] = useState([]);
