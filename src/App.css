@@ -1,11 +1,45 @@
-*,::before,::after{
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 .css-1ndpvdd-MuiTableCell-root,
-.css-1ygcj2i-MuiTableCell-root{
+.css-1ygcj2i-MuiTableCell-root {
   font-weight: 600 !important;
 }
+.css-j204z7-MuiFormControlLabel-root {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
 
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #d2d2d2;
+  width: 20px;
+  height: 20px;
+  border: 0.15em solid #d2d2d2;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
 
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+  background-color: #42b277;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}

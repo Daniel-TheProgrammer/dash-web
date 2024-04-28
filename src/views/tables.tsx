@@ -58,15 +58,14 @@ const TextInput = styled(TextField)({
 */
 
 export const TableView = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [data, setData] = useState([]);
 
-
   const handleFetch = async () => {
     try {
-      let apiUrl = import.meta.env.VITE_APP_API_ENDPOINT; 
+      let apiUrl = import.meta.env.VITE_APP_API_ENDPOINT;
       if (!apiUrl) {
         apiUrl = "/src/response.json";
       }
@@ -144,14 +143,20 @@ export const TableView = () => {
             </Box>
           </Box>
           <Box>
-            <FormControl variant="standard">
-              <FormGroup>
+            <FormControl>
+              <FormGroup
+                sx={{ display: "flex", flexDirection: "column", gap: "14px" }}
+              >
                 <FormControlLabel
-                  control={<Checkbox />}
+                  control={
+                    <input type="checkbox" style={{ marginRight: "8px" }} />
+                  }
                   label="Проверить ИНН"
                 />
                 <FormControlLabel
-                  control={<Checkbox />}
+                  control={
+                    <input type="checkbox" style={{ marginRight: "8px" }} />
+                  }
                   label="Проверить адрес"
                 />
               </FormGroup>
