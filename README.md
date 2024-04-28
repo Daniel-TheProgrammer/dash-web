@@ -25,7 +25,8 @@ Before you begin, ensure you have the following installed on your local machine:
 
 2. Open the .env file and insert your API endpoint in the following format:
 
-   ```VITE_APP_API_ENDPOINT=https://your-api-endpoint.com
+   ```
+   VITE_APP_API_ENDPOINT=https://your-api-endpoint.com
 
    ```
 
