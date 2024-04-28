@@ -237,8 +237,22 @@ export const TableView = () => {
       <Box
         sx={{
           padding: "24px",
+          height: "100%",
+          position: "relative",
         }}
       >
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "35px",
+            left: "24px",
+            display: "flex",
+          }}
+        >
+          <Typography sx={{ color: "#AAABAD", fontSize: "14px" }}>
+            Всего строк: {data?.length > 0 ? data.length : 0}
+          </Typography>
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -290,7 +304,7 @@ export const TableView = () => {
               marginTop: "9px",
             }}
           >
-            <option>Статус</option>
+            <option value="Статус">Статус</option>
           </TextField>
           <FormGroup>
             <FormControlLabel
