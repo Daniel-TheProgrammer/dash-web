@@ -17,7 +17,17 @@ Before you begin, ensure you have the following installed on your local machine:
    git clone https://github.com/Daniel-TheProgrammer/dash-web
    ```
 
-2. cd your repository
+2. cd your repo
+
+## Set Up Environment File
+
+1. If the .env file is not included in the repository, create a new file named .env in the root directory of the project.
+
+2. Open the .env file and insert your API endpoint in the following format:
+
+   ```VITE_APP_API_ENDPOINT=https://your-api-endpoint.com
+
+   ```
 
 3. npm install or yarn install
 

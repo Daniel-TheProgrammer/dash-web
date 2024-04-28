@@ -9,7 +9,7 @@
 .css-1ygcj2i-MuiTableCell-root {
   font-weight: 600 !important;
 }
-.css-j204z7-MuiFormControlLabel-root {
+.css-j204z7-MuiFormControlLabel-root{
   margin-right: 0 !important;
   margin-left: 0 !important;
 }
@@ -31,7 +31,7 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked::before {
   transform: scale(1);
-  background-color: #42b277;
+  background-color: #42B277;
 }
 
 input[type="checkbox"]::before {

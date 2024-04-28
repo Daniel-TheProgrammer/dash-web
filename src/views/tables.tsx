@@ -56,11 +56,61 @@ export const TableView = () => {
       if (!apiUrl) {
         apiUrl = "/src/response.json";
       }
-      const response = await fetch(apiUrl);
+      const response = await fetch(`${apiUrl}`);
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
       console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleDownload = async (id: number, url: string, fileName: string) => {
+    try {
+      const apiUrl = import.meta.env.VITE_APP_API_ENDPOINT; // Check if API endpoint exists in environment variable
+      if (apiUrl) {
+        // If API endpoint exists, fetch from there using the single ID
+        const response = await fetch(
+          `${apiUrl}/api/sessions/registers/${id}/export`
+        );
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = downloadUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        // If API endpoint doesn't exist, fetch directly from the file URL
+        //const response = await fetch(url);
+        //const blob = await response.blob();
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      alert("No file available");
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    try {
+      let newData = [...data];
+      const apiUrl = import.meta.env.VITE_APP_API_ENDPOINT;
+      if (apiUrl) {
+        await fetch(`${apiUrl}/api/sessions/registers/${id}/`, {
+          method: "DELETE",
+        });
+      } else {
+        newData = newData.filter((item: { id: number }) => item?.id !== id);
+      }
+      setData(newData);
+    } catch (error) {
+      console.error("Error deleting item:", error);
     }
   };
   return (
@@ -326,8 +376,28 @@ export const TableView = () => {
                           justifyContent: "center",
                         }}
                       >
-                        <DownLoad />
-                        <Delete />
+                        <span
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            cursor: "pointer",
+                          }}
+                          onClick={() =>
+                            handleDownload(row.id, row.file.url, row.file.name)
+                          }
+                        >
+                          <DownLoad />
+                        </span>
+                        <span
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => handleDelete(row.id)}
+                        >
+                          <Delete />
+                        </span>
                       </Box>
                     </TableCell>
                   </TableRow>
