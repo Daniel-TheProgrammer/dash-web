@@ -56,7 +56,7 @@ export const TableView = () => {
       if (!apiUrl) {
         apiUrl = "/src/response.json";
       }
-      const response = await fetch(`${apiUrl}`);
+      const response = await fetch(`${apiUrl}/api/sessions/registers`);
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
